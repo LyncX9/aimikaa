@@ -25,6 +25,17 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 
+if BOT_TOKEN is None:
+    raise ValueError("❌ BOT_TOKEN tidak ditemukan di environment Render!")
+
+client = discord.Client(intents=discord.Intents.default())
+
+@client.event
+async def on_ready():
+    print(f"✅ Logged in sebagai {client.user}")
+
+client.run(BOT_TOKEN)
+
 intents = discord.Intents.default()
 intents.message_content = True
 bot = discord.Client(intents=intents)
@@ -132,5 +143,6 @@ async def on_message(message):
 keep_alive()
 
 bot.run(BOT_TOKEN)
+
 
 
