@@ -1,5 +1,6 @@
 import openai
 import asyncio
+import base64
 import random
 import json
 import os
@@ -146,6 +147,7 @@ async def on_message(message):
 keep_alive()
 
 bot.run(BOT_TOKEN)
+
 
 
 
