@@ -22,8 +22,8 @@ from trending_fetcher import VIRAL_TOPICS, start_trending_loop
 
 
 load_dotenv()
-openai.api_key = os.getenv("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")
-BOT_TOKEN = os.getenv("MTQzNDI2MjQwNjkyNTkxMDA0OQ.GmCsBx.YaEyzE70Vz9Yu8Ja9s2KPMyLrQ1YvLN8cb8eJg")
+openai.api_key = os.getenv("OPENAI_API_KEY")
+BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN"
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -132,3 +132,4 @@ async def on_message(message):
 keep_alive()
 
 bot.run(BOT_TOKEN)
+
