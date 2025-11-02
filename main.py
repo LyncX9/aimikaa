@@ -33,7 +33,7 @@ client = discord.Client(intents=discord.Intents.default())
 @client.event
 async def on_ready():
     print(f"✅ Logged in sebagai {client.user}")
-
+print("🔍 BOT_TOKEN:", BOT_TOKEN[:15] + "..." if BOT_TOKEN else "❌ None")
 client.run(BOT_TOKEN)
 
 intents = discord.Intents.default()
@@ -143,6 +143,7 @@ async def on_message(message):
 keep_alive()
 
 bot.run(BOT_TOKEN)
+
 
 
 
