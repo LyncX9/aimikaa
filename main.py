@@ -25,6 +25,8 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 encoded = os.getenv("DISCORD_BOT_TOKEN_BASE64")
 BOT_TOKEN = base64.b64decode(encoded).decode()
+print("🔍 BOT_TOKEN Loaded, length:", len(BOT_TOKEN))
+client = discord.Client(intents=discord.Intents.default())
 
 if BOT_TOKEN is None:
     raise ValueError("❌ BOT_TOKEN tidak ditemukan di environment Render!")
@@ -144,6 +146,7 @@ async def on_message(message):
 keep_alive()
 
 bot.run(BOT_TOKEN)
+
 
 
 
