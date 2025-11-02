@@ -23,7 +23,8 @@ from trending_fetcher import VIRAL_TOPICS, start_trending_loop
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
-BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
+encoded = os.getenv("DISCORD_BOT_TOKEN_BASE64")
+BOT_TOKEN = base64.b64decode(encoded).decode()
 
 if BOT_TOKEN is None:
     raise ValueError("❌ BOT_TOKEN tidak ditemukan di environment Render!")
@@ -143,6 +144,7 @@ async def on_message(message):
 keep_alive()
 
 bot.run(BOT_TOKEN)
+
 
 
 
